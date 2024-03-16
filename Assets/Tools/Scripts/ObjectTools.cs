@@ -1,5 +1,7 @@
+#if UNITY_EDITOR
 namespace EditorTools
 {
+    using System;
     using UnityEditor;
     using UnityEngine;
 
@@ -62,11 +64,14 @@ namespace EditorTools
 
         public static void Space<T>(this T self, int value = 0) =>
             EditorGUILayout.Space(value);
+
+        public static void Settings(this EditorWindow self)
+        {
+            Type inspectorType = Type.GetType("UnityEditor.InspectorWindow,UnityEditor.dll");
+            SettingsWindow window = EditorWindow.GetWindow<SettingsWindow>(new Type[] { inspectorType });
+            window.Init(self);
+        }
         
     }
 }
-
-
-
-
-
+#endif

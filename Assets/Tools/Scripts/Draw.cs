@@ -1,3 +1,4 @@
+#if UNITY_EDITOR
 namespace EditorTools
 {
     using System;
@@ -54,6 +55,17 @@ namespace EditorTools
             return false;
         }
 
+        public static bool Button(Rect rect, string label, Action toDo)
+        {
+            if (GUI.Button(rect,label))
+            {
+                toDo?.Invoke();
+                return true;
+            }
+            return false;
+        }
+
     }
 }
 
+#endif
