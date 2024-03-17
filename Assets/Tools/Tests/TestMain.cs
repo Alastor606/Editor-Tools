@@ -9,7 +9,7 @@ namespace EditorTools
         private string _testString;
         private GameObject obj;
         private bool _testBool;
-        [MenuItem("Test/Main")]
+        [MenuItem("Test/123")]
         public static void CreateWindow()
         {
             var window = GetWindow<TestMain>("Tester");
