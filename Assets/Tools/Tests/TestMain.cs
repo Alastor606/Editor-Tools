@@ -1,6 +1,7 @@
 #if UNITY_EDITOR
 namespace EditorTools
 {
+    using Unity.VisualScripting;
     using UnityEditor;
     using UnityEngine;
 
@@ -19,15 +20,6 @@ namespace EditorTools
 
         private void OnGUI()
         {
-            this.Vertical(() =>
-            {
-                Draw.Label("Test label", 25, Color.green, Space:20);
-                Draw.TextField(ref _testString);
-                Draw.ObjectField(ref obj, allowSceneObjects: true);
-                Draw.Button("Chec button", () => Debug.Log("Button pressed"));
-                _testBool.Field("Test bool", true);
-
-            },AlignMode.Center);
            
         }
     }

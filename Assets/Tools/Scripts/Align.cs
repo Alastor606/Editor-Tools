@@ -109,7 +109,16 @@ namespace EditorTools
                     EditorGUILayout.EndVertical();
                     break;
             }
-           
+        }
+
+        public static void CheckArea(this EditorWindow self, Action area, Action ñallback)
+        {
+            EditorGUI.BeginChangeCheck();
+            area?.Invoke();
+            if (EditorGUI.EndChangeCheck())
+            {
+                ñallback?.Invoke();
+            }
         }
     }
 
